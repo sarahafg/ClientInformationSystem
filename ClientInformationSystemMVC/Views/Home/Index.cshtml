@@ -1,0 +1,19 @@
+﻿@model List<ApplicationCore.Models.EmployeeResponseModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Employees</h1>
+    <ul class="list-group list-group-flush">
+        @foreach (var client in Model)
+        {
+            <li class="list-group-item">
+
+                <i>@client.Name</i>
+                <i>@client.Designation</i>
+            </li>
+        }
+    </ul>
+</div>
