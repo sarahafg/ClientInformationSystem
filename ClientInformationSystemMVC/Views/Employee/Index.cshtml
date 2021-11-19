@@ -1,4 +1,4 @@
-﻿@model List<ApplicationCore.Models.EmployeeResponseModel>
+﻿@model ApplicationCore.Models.InteractionPageViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,14 +7,14 @@
 <div class="text-center">
     <h1 class="display-4">Employees</h1>
     <ul class="list-group list-group-flush">
-        @foreach (var employee in Model)
+        @foreach (var employee in Model.header.employeeDropDown)
         {
         <li class="list-group-item">
             <i style="font-size:large">@employee.Name</i>
             <br />
             <i>Designation: @employee.Designation</i>
             <br />
-            <a href="http://localhost:44300/employee" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@employee.Name's Interaction</a>
+            <a href="http://localhost:44300/interaction" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@employee.Name's Interaction</a>
         </li>
         }
     </ul>

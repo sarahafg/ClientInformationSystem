@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-@model List<ApplicationCore.Models.EmployeeResponseModel>
+@model ApplicationCore.Models.InteractionPageViewModel
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,10 +26,29 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             @*@await Component.InvokeAsync("Employees")*@
                             <ul class="list-group list-group-flush">
-                                @foreach (var employee in Model)
+                                @foreach (var employee in Model.header.employeeDropDown)
                                 {
                                     <li class="list-group-item">
-                                        <a href="https://localhost:44300/interaction">@employee.Name</a>
+                                        <a href="https://localhost:44300/employee">@employee.Name</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mr-auto text-uppercase">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Clients
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            @*@await Component.InvokeAsync("Employees")*@
+                            <ul class="list-group list-group-flush">
+                                @foreach (var client in Model.header.clientDropDown)
+                                {
+                                    <li class="list-group-item">
+                                        <a href="https://localhost:44300/client/clientlist">@client.Name</a>
                                     </li>
                                 }
                             </ul>

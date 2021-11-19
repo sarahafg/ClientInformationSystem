@@ -1,4 +1,5 @@
-﻿using ApplicationCore.ServiceInterfaces;
+﻿using ApplicationCore.Models;
+using ApplicationCore.ServiceInterfaces;
 using ClientInformationSystemMVC.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
@@ -20,16 +21,17 @@ namespace ClientInformationSystemMVC.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            var interCards = await _dataService.GetAllEmployee();
-            if (!interCards.Any())
+            InteractionPageViewModel intModel = new InteractionPageViewModel {  header = new HeaderViewModel() };
+            intModel.header.clientDropDown = await _dataService.GetAllClient();
+            intModel.header.employeeDropDown = await _dataService.GetAllEmployee();
+            if (!intModel.header.clientDropDown.Any())
             {
-                return View();
+                return View(intModel);
             }
-            return View(interCards);
-            //return View();
+            return View(intModel);
         }
 
-        public async Task<IActionResult> Employees()
+        public async Task<IActionResult> Privacy()
         {
             var employeeCards = await _dataService.GetAllEmployee();
             if (!employeeCards.Any())
@@ -37,12 +39,6 @@ namespace ClientInformationSystemMVC.Controllers
                 return View();
             }
             return View(employeeCards);
-            //return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

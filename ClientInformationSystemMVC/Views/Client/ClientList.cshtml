@@ -1,4 +1,4 @@
-﻿@model ApplicationCore.Models.ClientPageViewModel
+﻿@model ApplicationCore.Models.InteractionPageViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -15,11 +15,12 @@
             <br />
             <i>Email: @client.Email</i>
             <br />
-            <I>Phone Number: @client.Phones}}</I>
+            <I>Phone Number: @client.Phones</I>
             <br />
+            <a href="http://localhost:44300/interaction" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@client.Name's Interaction</a>
         </li>
         }
     </ul>
 
-    
+
 </div>

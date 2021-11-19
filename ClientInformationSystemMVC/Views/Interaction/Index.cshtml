@@ -1,4 +1,4 @@
-﻿@model List<ApplicationCore.Models.InteractionResponseModel>
+﻿@model ApplicationCore.Models.InteractionPageViewModel
 
 @{
     ViewData["Title"] = "Home Page";
@@ -7,14 +7,16 @@
 <div class="text-center">
     <h1 class="display-4">Interactions</h1>
     <ul class="list-group list-group-flush">
-        @foreach (var inter in Model)
+        @foreach (var inter in Model.interaction)
         {
-            <li class="list-group-item">
-
-                <a href="http://localhost:44300/interaction" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@inter.EmpName</a>
-            </li>
+        <li class="list-group-item">
+            <i style="font-size: x-large;">Employee: @inter.EmpName</i>
+            <br />
+            <i style="font-size: x-large;">Client: @inter.ClientName</i>
+            <br />
+            <i>Remarks: @inter.Remarks</i>
+            <br />
+        </li>
         }
     </ul>
-
-    
 </div>
