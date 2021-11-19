@@ -1,0 +1,20 @@
+﻿@model List<ApplicationCore.Models.InteractionResponseModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Interactions</h1>
+    <ul class="list-group list-group-flush">
+        @foreach (var inter in Model)
+        {
+            <li class="list-group-item">
+
+                <a href="http://localhost:44300/interaction" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">@inter.EmpName</a>
+            </li>
+        }
+    </ul>
+
+    
+</div>
